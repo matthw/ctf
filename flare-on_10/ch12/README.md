@@ -1,0 +1,4 @@
+- dump resource and decrypt it 
+- reverse to get first input part
+- unicorn out the byetarray
+- z3 the flag

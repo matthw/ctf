@@ -1,0 +1,5 @@
+- patch bin to autoplay
+- run with dosbox
+- input konami code to set the seed
+- let it play
+- run under windows to get flag
