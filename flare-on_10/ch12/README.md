@@ -10,7 +10,7 @@ It feeds the partition some code from the PE resource and respond to IO requests
 
 I wanted to a grasp of the code in the rsrc because offset 0 wasn't making much x64 sense and didnt know where to start (author explains why in the official solution).
 
-I have no windows host, so filled with some sweet candid hope, enabled HyperV in my analysis VM, rebooted and ended up with a bricked VM... once more, yayy for snapshots.
+I have no windows host, so filled with some sweet candid hope, I enabled HyperV in my analysis VM, rebooted and ended up... with a bricked VM... once more, yayy for snapshots.
 
 Long story short, i have never been able to run the binary.
 
