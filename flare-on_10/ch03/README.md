@@ -7,7 +7,7 @@ It tedious but there's a lot to learn for aspiring malware analysts, i encourage
 
 ## 2. Bruteforce like an idiot.
 
-At some point you need a crc32 to match, and i missed the whole data check stuff, so i just [bruteforced](find_key_for_crc.py) it.
+At some point you need a crc32 to match, and i missed the whole date check stuff, so i just [bruteforced](find_key_for_crc.py) it.
 
 It uses a modified RC4, so i just emulated the function with unicorn instead of coding and testing...
 
