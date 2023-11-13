@@ -1,14 +1,14 @@
 ## 1. The Crypto Challenge
 
 The reversing is pretty straightforward: you get two threads.
-- 1 thread looks for file with a certain extension
-- 1 thread encrypt said files
+- 1 thread looks for files with a certain extension
+- 1 thread encrypts said files
 
 OpenSSL is statically compiled but there's load of debug strings with filenames and line numbers.
 
 A random key is generated and used to encrypt the file using a sort of ChaCha20.
 
-The 256 bytes cipher context is then encrypted using textbook RSA and the following public key and then append to the encrypted file:
+The 256 bytes cipher context is then encrypted using textbook RSA with the following public key and then append to the encrypted file:
 
 ```
 -----BEGIN PUBLIC KEY-----
@@ -49,7 +49,7 @@ Modulus:
 Exponent: 3 (0x3)
 ```
 
-few things rings a bell:
+Few things ring a bell here:
 - the low exponent (3)
 - the fact that the cipher context always starts by a bunch of zeros (no proper padding)
 - the last 16 bytes are always `expand 32-byte k`
@@ -81,7 +81,7 @@ print(recovered)
 print(len(recovered))
 ```
 
-I dont understand any of this maths and even tho i found all the leads, i just couldn't make the maths work without the help of a beautiful number crushing nerd (sooo close tho :).
+I dont understand any of these maths and even though i found all the leads (my googling improved since challenge 4), I just couldn't make the maths work without the help of a beautiful number crushing nerd (so close tho...).
 
-Then we can patch the context into memory and let the binary decrypt the file for us.
+Then we can patch the decrypted context into memory, let the binary decrypt the file for us and call it a day.
 
