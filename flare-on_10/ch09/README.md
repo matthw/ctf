@@ -19,7 +19,7 @@ reverse, see it does stuff, decrypts more code and jump at 0x1000
 > dump memory 0x1000.bin 0x1000 0x8c00
 ```
 
-gdb craps a bit itself at disassembling 16bit code but it's ok, we can survive.
+gdb craps itself a bit at disassembling 16bit code but it's ok, we can survive.
 
 ## 2. Reverse more
 
@@ -32,5 +32,7 @@ load the newly acquired dump in your favorite tool and get the first part of the
 
 ## 3. Bruteforce much
 
-The function at `0x1296` is supposed to return 0 if the key is correct, we can write a quick unicorn [harness](harness.py) and bruteforce the last of the key.
+The function at `0x1296` is supposed to return 0 if the key is correct, we can use this to our advantage and write a quick unicorn [harness](harness.py) and bruteforce the last bytes of the key.
 The script runs a couple minutes and returns `b'\x04\n\r\x0c'` which means the last part of the key is `4ADC` and the full key `61D2E6E14A754ADC`
+
+Use the key, watch the disk being decrypted, reboot and get the flag. Easy peasy Moneypenny.
