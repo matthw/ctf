@@ -4,7 +4,7 @@ This is an aimbot (and info stealer) for a game called sauerbraten.
 
 My initial good search yields
 
-[sauerbraten](pics/sauerbraten.png)
+![sauerbraten](pics/sauerbraten.png)
 
 So i assumed this was just a made up thing by the german FLARE team, and did most of it without the actual game until the last stage where i was kind of stuck and refined my search and found
 [this](http://sauerbraten.org/).
