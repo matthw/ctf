@@ -1,7 +1,6 @@
-It flare-on, you made it this far, you know how to dump shellcodes to disk and analyze them: there's no need to cover.
+It's flare-on, you made it this far, you know how to dump shellcodes to disk and analyze them: there's no need to cover.
 
-But you end up with code full of jumps, your tool creates functions everywhere, you can't make
-sense of anything and it drives you crazy.
+But you end up with a code full of jumps, your tool creates functions everywhere, you can't make sense of anything and it drives you crazy.
 
 ## 1. It's 2023 - who needs a deobfuscator for JUMPS ?
 
@@ -25,7 +24,7 @@ You can then press the `auto-reverse hotkey` to have everyting nicely renamed:
 
 Assuming you found the one shellcode that does RC6, follow the `decrypt`  function, to 
 
-``` python
+```python
 void decrypt(undefined4 buff,undefined4 siuze,uint key)
 
 {
@@ -41,7 +40,8 @@ void decrypt(undefined4 buff,undefined4 siuze,uint key)
         (*_DAT_00460218)(heap);
     }
     return;
-}```
+}
+```
 
 in the `key_setup`, you can find the magic constants and say yayy for RC6:
 
@@ -86,12 +86,12 @@ void key_setup(uint key,undefined4 *key_out)
 
 
 there's also a slight modification of the key which transforms `BAADBEEF` to `EF0001BA`:
-``` python
+```python
 key = key >> 0x18 | key >> 8 & 0x10 | (key & 1) << 8 | key << 0x18;
 ``` 
 
 
-the RC6 uses `0x10` rounds as evidence suggests in there:
+The RC6 uses `0x10` rounds as evidences suggest in there:
 
 ```python
 void rc6_block(int param_1,uint param_2,int *param_3)
