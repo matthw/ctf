@@ -124,6 +124,6 @@ The 2nd part requires actually doing some reversing, but i'm too much of an idio
 
 It first takes that first input and generates some data, then do a series of xors.
 
-I've asked my [unicorn](test_array.py) friend to generates that data for me and then my second friend [z3](slv.py) to solve it for me.
+I've asked my [unicorn](test_array.py) friend to generate that data for me and then my second friend [z3](slv.py) to solve it for me.
 
 When you have no brain, you have good friends :)
