@@ -4,7 +4,7 @@ A fun challenge that could have been slightly harder
 
 We get a pcap and rust binary, obviously the answer lies within the pcap.
 
-The binary embeds two full blown PE, xorred with an obvious key:
+The binary embeds two full blown PE, xorred with an obvious key (especially knowing the [author](https://twitter.com/cPeterr)):
 
 ```
 000ad1b0  40 63 50 65 74 65 72 72  40 63 50 65 74 65 72 72  |@cPeterr@cPeterr|
@@ -17,18 +17,16 @@ The binary embeds two full blown PE, xorred with an obvious key:
 000ad270  40 63 50 65 74 65 72 72  40 63 50 65 74 65 73 72  |@cPeterr@cPetesr|
 ```
 
-It will inject them into `svchost.exe`, but we just extract them and run manually run them
-because we're wild.
+It will inject them into `svchost.exe`, but we just extract and manually run them because we're wild!
 
 ## 2. It will ruin your VM
 
-The first binary will infect every executable in %APPDATA%, it will most likely ruin you VM but
-it is definitly worth it !
+The first binary will infect every executable in `%APPDATA%` (iirc), it will most likely ruin you VM but it is definitly worth the try !
 
-[sus](pics/sus.png)
+![sus](pics/sus.png)
 
 ## 3. Abuse the implant!
 
-The second binary will run some sort of bindshell, it can be abused to decrypt the transfered files by [replaying](comm.py) the content of the pcap.
+The second binary will run some sort of bindshell and it can be abused to decrypt the transfered files by [replaying](comm.py) the content of the pcap.
 
 The flag is in the wallpaper.
