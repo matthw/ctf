@@ -17,6 +17,8 @@ The rop chain takes 3 input:
 
 It performs a serie of operations on the encrypted flag, char by char (decrypt it), before xoring it with the random buffer and spitting it out as a base32 encoded string.
 
+![zeros](pics/zero.jpg)
+
 Whenever there's some XOR like that, always try to zero the buffer, it can pay off ;)
 
 i've put everything together (rsrc decryption, rop chain to shellcode and flag decryption) is the final [script](solve.py).
