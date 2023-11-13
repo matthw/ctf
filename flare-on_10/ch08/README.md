@@ -27,8 +27,8 @@ it is definitly worth it !
 
 [sus](pics/sus.png)
 
-## 3. Abuse the bindshell
+## 3. Abuse the implant!
 
-The second binary will run a bindshell, it can be abused to decrypt the transfered files by [replaying](comm.py) the content of the pcap.
+The second binary will run some sort of bindshell, it can be abused to decrypt the transfered files by [replaying](comm.py) the content of the pcap.
 
 The flag is in the wallpaper.
