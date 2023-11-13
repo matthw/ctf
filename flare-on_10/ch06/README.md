@@ -1,8 +1,9 @@
-This one of my favorite challenge this year
+This was one of my favorite challenge this year
 
 ## 1. WIN32
 
-upon loading you face something that looks like a malformed PE.
+Upon loading you face something that looks like a malformed PE.
+
 After giving it a bit of love, the truth reveals itself.
 
 It calculates the hash of some 16 bytes memory region and if it is equal to `0x31d9f5ff` it will do some crypto magic, decrypt some data and display a popup.
