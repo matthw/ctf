@@ -18,16 +18,18 @@ Long story short, i have never been able to run the binary.
 
 I loaded the extracted resource into Binary Ninja, found some random piece of code that made sense and walked my way out.
 
-[random](pics/random.png)
+![random](pics/random.png)
 
-The `OUT` instruction means we can RC4 `decrypt` `R9` (0x1b) bytes using the `R8` as key (0x1acf57fbe20bb050).
+Gosso modo, the `OUT` instruction means we can RC4 `decrypt` `R9` (0x1b) bytes above the current position using the `R8` as key (0x1acf57fbe20bb050).
+
+It actually tells the hypervirsor to reencrypt the executed code block, but that's too much details heee.
 
 Binary Ninja let you do RC4 from the tip of your mouse:
 
-[rc4](pics/rc4.png)
+![rc4](pics/rc4.png)
 
 
-[fixed](pics/fixed.png)
+![fixed](pics/fixed.png)
 
 Rinse and repeat, all it took was some clicky clicky during session a 20mins train ride from work to home while chatting with a friend, not the end of the world...
 
