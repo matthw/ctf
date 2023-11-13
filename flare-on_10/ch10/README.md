@@ -1,8 +1,8 @@
 ## 1. Back to the future
 
-The real challenge here was that i was mostly reversing in sweat pants, crashing on my sofa and the PDP11 emulator liked to max out one my CPU core, having the side effect of draining my battery and regularly having to run for power.
+The real challenge here was that i was mostly reversing in sweat pants, crashing on my sofa and the PDP11 emulator liked to max out one my CPU core, having the side effect of draining my battery and me regularly having to run for power. That helped reaching the 10000 steps a days fitness goal.
 
-I fiddled 5 mins to attach the tape, then it was pretty straightfoward:
+Anyway, I fiddled around 5 mins to attach the tape, then it was pretty straightfoward, as i used to type the same during my solaris 2.6 days:
 
 ```
 # stty erase ^H
@@ -25,9 +25,11 @@ The symbols can be acquired with the  `nm` command
 
 ## 2. ADB (aka Ancient DeBugger)
 
-I did everying using `adb`, not the android debugger, but some gdb ancestor. Every 5 minutes spent in there make you do a 1 minute of silence out of respect for the people who actually had to work with that.
+I did everying using `adb`, not the android debugger, but some gdb ancestor. 
 
-The source code lies somewhere on github (and is a [piece of art](https://github.com/RetroBSD/2.11BSD/blob/master/usr/bin/adb/command.c))
+Every 5 minutes spent in there make you spend 1 minute of silence out of respect for the people who actually had to work with that.
+
+The source code lies somewhere on github and is a [piece of art](https://github.com/RetroBSD/2.11BSD/blob/master/usr/bin/adb/command.c)
 
 Anyway, it has everything you could hope for:
 
@@ -152,20 +154,19 @@ adb> 07332,20?o
                 0       0       0       0
 ```
 
-adb is part of a weird cult that favours octal over anything else.
+Note that adb is part of a weird cult that favours octal over anything else.
 
 
 ## 3. Strategy (like i have one)
 
-Even tho the forth interpreter binary is sort of a piece of art, i went the dynamic way.
+Even though the forth interpreter binary is kind of a piece of art, i went the dynamic way.
 
 There's 3 interesting words: `decrypt`, `decode` and `secret`
-
 - `secret` will load the symbol `_secret` (which is our secret, prefixed by its size).
 - `decrypt` is purely written in assembly and is just xoring two buffer together
 - `decode` is word made of other forth words.
 
-i singled stepped this last one, taking note of each symbol change (as they match the forth words) and watching the forth stack (which is located +/- at an addr pointed by the r5 register).
+i singled stepped this last one, taking note of each symbol change (as they match the forth words) and watching the forth stack (which is located +/- at an address pointed by the r5 register).
 
 and this gets us the flag:
 ```python
