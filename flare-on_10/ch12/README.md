@@ -120,9 +120,9 @@ b'FLARE2023FLARE2023FLARE2023FLARE2023\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x
 
 
 
-The 2nd part requires actually doing some reversing, but i'm too much of an idiot for that.
+The 2nd part actually requires doing some reversing, but i'm too much of an idiot for that.
 
-It first takes that first input and generates some data, then do a series of xors.
+It first take the first input and generates some data, then performs a serie of xors.
 
 I've asked my [unicorn](test_array.py) friend to generate that data for me and then my second friend [z3](slv.py) to solve it for me.
 
