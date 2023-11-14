@@ -30,6 +30,9 @@ def trykey(key):
     mu.mem_write(0x1000, code)
     mu.mem_write(0x2a4c, key)
 
+
+    # dumped cpu context with gdb and blindly
+    # copied most register values
     mu.reg_write(UC_X86_REG_SP, 0xfff4)
     mu.reg_write(UC_X86_REG_BP, 0x1)
     mu.reg_write(UC_X86_REG_ES, 0x0)
@@ -40,9 +43,11 @@ def trykey(key):
     mu.reg_write(UC_X86_REG_SI, 0x0)
     mu.reg_write(UC_X86_REG_DI, 0x2a5c)
     mu.reg_write(UC_X86_REG_CR0, 0x10)
-
-
+    
+    # emulate from function start to right before the ret instruction
     mu.emu_start(0x1296, 0x130b)
+
+    # grab return value from EAX
     return mu.reg_read(UC_X86_REG_AX)
 
 
