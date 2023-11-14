@@ -32,11 +32,11 @@ load the newly acquired dump in your favorite tool and get the first part of the
 
 ## 3. Bruteforce much
 
-The function at `0x1296` returns 0 if the key is correct (otherwise a pointer to an error string).
+The function at `0x1296` (`check_key`) returns 0 if the key is correct (otherwise a pointer to an error string).
 
 ![func](pics/func.png)
 
-We can use this to our advantage and write a quick unicorn [harness](harness.py) and bruteforce the last bytes of the key.
+We can use this to our advantage and write a quick unicorn [harness](harness.py) to bruteforce the last 2 bytes of the key.
 
 The script runs a couple minutes and returns `b'\x04\n\r\x0c'` which means the last part of the key is `4ADC` and the full key `61D2E6E14A754ADC`
 
