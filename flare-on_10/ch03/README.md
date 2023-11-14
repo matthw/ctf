@@ -2,7 +2,7 @@
 
 This was enough of a pain to reverse and go through, i'm not going to do it again for a writeup.
 
-It tedious but there's a lot to learn for aspiring malware analysts, i encourage it you to do it (partly to share our pain).
+It tedious but there's a lot to learn for aspiring malware analysts/reverse engineers, I encourage you to do it (partly to share our pain).
 
 
 ## 2. Bruteforce like an idiot.
@@ -11,7 +11,7 @@ At some point you need a crc32 to match, and i missed the whole date check stuff
 
 It uses a modified RC4, so i just emulated the function with unicorn instead of coding and testing...
 
-It spits out the characters that goes in front of `pizza`
+It spits out the character that goes in front of `pizza`
 
 ## 3. Flag
 
