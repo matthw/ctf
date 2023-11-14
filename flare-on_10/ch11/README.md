@@ -51,15 +51,15 @@ Exponent: 3 (0x3)
 
 Few things ring a bell here:
 - the low exponent (3)
-- the fact that the cipher context always starts by a bunch of zeros (no proper padding)
-- the last 16 bytes are always `expand 32-byte k`
+- the fact that RSA encrypted message always starts by a bunch of zeros (no proper padding)
+- the last 16 bytes of that message are always `expand 32-byte k`
 
-googling leads to Coppersmith and few CTF writeups like:
+Googling leads to Coppersmith and few CTF writeups like:
 - https://medium.com/@hva314/some-basic-rsa-challenges-in-ctf-part-2-applying-theoretical-attack-55a2cc7baa11
 - https://hgarrereyn.gitbooks.io/th3g3ntl3man-ctf-writeups/content/2017/UIUCTF/problems/Cryptography/papaRSA/
 
 
-which we can translate to the following sagemath script:
+which translates to the following sagemath script:
 ```python
 # RsaCtfTool.py --dumpkey --publickey pubkey.pem
 n = 25470150703730072315086034936055649836295236884601534304156993296936285040601301375939610442634162257314189499275100972455566398455602026574433195970815202585090501432569441133857842325042217925159448570072586058996240505604332536419689764920477213974406475165093073579216369638057129512420088827606714396031123135244463251843168817519429473193827165432916372277360150211932008151288302906204095482949720169306181114320172114379252171541724857670073249548632622866650173757036971232388781059615489960396402755953330835572369467647829965472365925514887194394952977362957692659807638830075891677256168792219800752995169
@@ -81,7 +81,7 @@ print(recovered)
 print(len(recovered))
 ```
 
-I dont understand any of these maths and even though i found all the leads (my googling improved since challenge 4), I just couldn't make the maths work without the help of a beautiful number crushing nerd (so close tho...).
+This is all black magic to me and even though I found all the leads (my googling improved since challenge 4), I just couldn't make the maths work without the help of a beautiful numbers crushing nerd (to my defense, I was 18 when i last attended a mathematics course and that was 20y ago, so close tho...).
 
-Then we can patch the decrypted context into memory, let the binary decrypt the file for us and call it a day.
+Using a debugger, we can then patch the decrypted context into memory, let the binary decrypt the file for us and call it a day.
 
