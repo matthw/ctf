@@ -1,6 +1,11 @@
 ## 1. Read code
 
-use jadx-gui and read code
+use jadx-gui and read code.
+
+Looked for the crypto and walked my way up the xrefs. The firebase stuff was safely ignored :)
+
+![crypto](pics/doFinal.png)
+
 
 ## 2. Extract data
 
