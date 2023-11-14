@@ -146,7 +146,7 @@ Now is the time of endless wandering looking for data to decrypt.
 
 Somewhere along the path you dumped the thing injected into explorer.exe.
 
-In there lies a blob of high entropy data data stuck between 2 BAADBEEF markers, you find it and reuse the previously acquired key, (in my case, badly) using the awesome [Binery Refinery](https://github.com/binref/).
+In there lies a blob of high entropy data data stuck between 2 BAADBEEF markers, you find it and reuse the previously acquired key, (in my case, badly) using the awesome [Binary Refinery](https://github.com/binref/).
 
 ```
 % python -c 'import sys; sys.stdout.buffer.write(open("explorer_injected2.bin", "rb").read().split(b"\xef\xbe\xad\xba")[1])' | rc6 le:e:0xef0001ba -Rr -k 0x10
