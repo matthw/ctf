@@ -22,4 +22,4 @@ b'Patience is rewarded sooner or later - but usually later.'
 ```
 
 
-Alternatively it's an easy unicorn target (yes, i am in a [unicorn](https://www.unicorn-engine.org/) mood lately): [emu.py][emu.py]
+Alternatively it's an easy unicorn target (yes, i am in a [unicorn](https://www.unicorn-engine.org/) mood lately): [emu.py](emu.py)
