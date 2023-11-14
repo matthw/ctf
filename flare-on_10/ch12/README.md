@@ -31,7 +31,7 @@ Binary Ninja let you do RC4 from the tip of your mouse:
 
 ![fixed](pics/fixed.png)
 
-Rinse and repeat, all it took was some clicky clicky during session a 20mins train ride from work to home while chatting with a friend, not the end of the world...
+Rinse and repeat, all it took was a clicky clicky session during a 20mins train ride from work to home while chatting with a friend, not the end of the world...
 
 
 ## 4. Going for the flag
