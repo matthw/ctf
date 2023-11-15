@@ -2,7 +2,7 @@
 
 This was enough of a pain to reverse and go through, i'm not going to do it again for a writeup.
 
-It tedious but there's a lot to learn for aspiring malware analysts/reverse engineers, I encourage you to do it (partly to share our pain).
+It is tedious but there's a lot to learn for aspiring malware analysts/reverse engineers, I encourage you to do it (partly to share our pain).
 
 
 ## 2. Bruteforce like an idiot.
