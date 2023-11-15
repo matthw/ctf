@@ -6,10 +6,10 @@ My initial google search returned
 
 ![sauerbraten](pics/sauerbraten.png)
 
-So i assumed this was just a made up thing by the german FLARE team, and did most of it without the actual game up until the last stage where i was kind of stuck, refined my search and found
-[this](http://sauerbraten.org/).
+So i assumed this was just a made up thing by the german FLARE team, and did most of it without the actual game, up until the last stage where i was kind of stuck. I refined my search and found
+[this](http://sauerbraten.org/) FPS game.
 
-Meanwhile i had to hunt for config files of softwares i dont own or even install them and bloat my VM with theses craps. I love snapshots...
+Meanwhile i had to hunt for config files of softwares i dont own, sometimes even install them and bloat my VM. I love snapshots...
 
 ## 2. Matrioshka
 
@@ -18,4 +18,4 @@ Each shellcode uses the same structure, so once you've reversed one, you've basi
 
 ## 3. Morality
 
-practice your google search and don't assume you're getting trolled 24/7 by german gentlemen :) (even though you are).
+Practice your google search and don't assume you're getting trolled 24/7 by german gentlemen :) (even though you are).
