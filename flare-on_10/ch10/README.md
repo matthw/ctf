@@ -1,8 +1,8 @@
 ## 1. Back to the future
 
-The real challenge here was that i was mostly reversing in sweat pants, crashing on my sofa and the PDP11 emulator liked to max out one my CPU core, having the side effect of draining my battery and me regularly having to run for power. That helped reaching the 10000 steps a days fitness goal.
+The real challenge here was that i was mostly reversing in sweat pants, crashing on my sofa and the PDP11 emulator liked to max out one my CPU core, having the side effect of draining my battery and having me regularly run for power. That helped reaching the 10000 steps a days fitness goal.
 
-Anyway, I fiddled around 5 mins to attach the tape, then it was pretty straightfoward, as i used to type the same during my solaris 2.6 days:
+Anyway, I fiddled around 5 mins to attach the tape, then getting to run the binary was pretty straightfoward, as i used to type the same during my solaris 2.6 days:
 
 ```
 # stty erase ^H
@@ -10,26 +10,26 @@ Anyway, I fiddled around 5 mins to attach the tape, then it was pretty straightf
 # cat /dev/rmt12 > hell.Z
 # file hell.Z
 hell.Z: block compressed 12 bit code data
-# uncompress hell.
+# uncompress hell
 # chmod +x ./hell
 # ./hell
 MoogleForth starting. Stack: 3802
 ```
 
-i took the first random hexdump.c from github and compiled it in the guest, so i could exfil the binary.
+I took the first random hexdump.c from github and compiled it inside the guest so i could exfil the binary.
 
-You can load it in any PDP11 capable disassembler. If it doesnt understand the oldskool `a.out` format, just skip the first 0x10 bytes.
+You can load it in any PDP11 capable disassembler. If it doesnt understand the oldschool `a.out` format, just skip the first 0x10 bytes.
 
-The symbols can be acquired with the  `nm` command
+The symbols and their addresses can be acquired with the `nm` command if you dont want to write a proper loader.
 
 
-## 2. ADB (aka Ancient DeBugger)
+## 2. Ancient DeBugger (ADB)
 
 I did everying using `adb`, not the android debugger, but some gdb ancestor. 
 
-Every 5 minutes spent in there make you spend 1 minute of silence out of respect for the people who actually had to work with that.
+Every 5 minutes spent in there make you spend 1 minute of silence out of respect for the people who actually had to work with that. We're so spoiled with modern tooling :)
 
-The source code lies somewhere on github and is a [piece of art](https://github.com/RetroBSD/2.11BSD/blob/master/usr/bin/adb/command.c)
+The source code lies somewhere on github and is a [piece of art](https://github.com/RetroBSD/2.11BSD/blob/master/usr/bin/adb/command.c).
 
 Anyway, it has everything you could hope for:
 
@@ -73,7 +73,7 @@ decrypt+0106:   mov     (sp)+,r2
 decrypt+0110:   mov     (r4)+,pc
 ``` 
 
-- you can place break points and run the program
+- you can place breakpoints and run the program
 
 ```
 adb> decode:b
@@ -128,8 +128,9 @@ stopped at      swap+02:        mov     (r5),-(r5)
 adb> :s
 ./hell: running
 stopped at      swap+04:        mov     r0,02(r5)
-``` 
-- dump registers
+```
+
+- dump registers:
 
 ```
 adb> $r
@@ -159,11 +160,11 @@ Note that adb is part of a weird cult that favours octal over anything else.
 
 ## 3. Strategy (like i have one)
 
-Even though the forth interpreter binary is kind of a piece of art, i went the dynamic way.
+Even though the forth interpreter binary is kind of a piece of art, i took the dynamic route.
 
 There's 3 interesting words: `decrypt`, `decode` and `secret`
 - `secret` will load the symbol `_secret` (which is our secret, prefixed by its size).
-- `decrypt` is purely written in assembly and is just xoring two buffer together
+- `decrypt` is purely written in assembly and is just xoring two buffers together
 - `decode` is word made of other forth words.
 
 i singled stepped this last one, taking note of each symbol change (as they match the forth words) and watching the forth stack (which is located +/- at an address pointed by the r5 register).
