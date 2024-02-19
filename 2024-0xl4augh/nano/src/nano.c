@@ -21,7 +21,7 @@ uint8_t KEY[] =  {123, 61, 20, 67, 1, 67, 94, 47, 39, 106, 71, 74, 27, 16, 83, 2
 
 /* just ptrace() but without libc just to fuck around
  */
-long PTRACE_SYSCALL(long request, long pid, void *addr, void *data)
+long func_00101189(long request, long pid, void *addr, void *data)
 {
     long ret; 
 
