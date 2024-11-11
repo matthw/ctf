@@ -24,5 +24,5 @@ VM 3 can't be abused this way, I made a symbolic solver with Triton, pushing pat
 everytime there's a symbolized `CMP` VM handler (takes a while to solve...)
 
 ```
-% python vm3.py ./enc/catmeme1.jpg.c4tb
+% python vm3.py ./enc/catmeme3.jpg.c4tb
 ```
