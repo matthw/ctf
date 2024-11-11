@@ -58,14 +58,13 @@ def emulate(ctx, pc):
                 for k,v in sorted(list(mod.items())):
                     flag += chr(v.getValue())
                     ctx.setConcreteVariableValue(ctx.getSymbolicVariable(v.getId()), v.getValue())
-                print("flag: %s"+flag)
+                print("flag: "+flag)
 
             
         if instruction.getType() == OPCODE.X86.RET:
             break
 
         pc = ctx.getConcreteRegisterValue(ctx.registers.rip)
-
 
 
 

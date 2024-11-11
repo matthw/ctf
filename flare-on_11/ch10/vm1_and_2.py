@@ -41,10 +41,10 @@ def emulate(ctx, pc):
         addr = instruction.getAddress()
         ctx.processing(instruction)
 
+        # VM opcode switch case head
         if addr == 0x312c0:
             #print("############")
             #print("#  handler: 0x%02x"%ctx.getConcreteRegisterValue(ctx.registers.eax))
-            #print("#  pMEM1  : 0x%x"%u64(ctx.getConcreteMemoryAreaValue(MEM1, CPUSIZE.QWORD)))
             #print("############")
             vm_ins += 1
 
