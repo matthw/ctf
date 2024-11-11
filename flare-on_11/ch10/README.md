@@ -1,12 +1,12 @@
 ## 10. CATBERG Ransomware
 
-Almost complete blackbox solve.
+Almost complete blackbox solve (... of the VM :-)).
 
-use `uefiextract` to get the shell PE ([uefi_shell.pe](uefi_shell.pe)), then reverse it enough
+Use `uefiextract` to get the shell PE ([uefi_shell.pe](uefi_shell.pe)), then reverse it enough
 to notice the VM interpreter is for the most part "self contained" into a single function
 without any further function call except for the "PUTCHAR" opcode (and we can deal with it should we need it - but we don't).
 
-Since debugging UEFI seems like a pain, we can feed that function only to an emulator and play with it=)
+Since debugging UEFI seems like a pain, we can feed that function only to an emulator and play with it =)
 
 VM interpreter is at `0x00031274`, the rest (file format, etc...) is better described in the [official solution](https://services.google.com/fh/files/misc/flare-on11-challenge10-catbert-ransomware.pdf).
 
