@@ -54,8 +54,11 @@ def emulate(ctx, pc):
                 r = r.getAst()
                 ctx.pushPathConstraint(r == 1)
                 mod = ctx.getModel(ctx.getPathPredicate())
-                for k,v in list(mod.items()):
+                flag = ""
+                for k,v in sorted(list(mod.items())):
+                    flag += chr(v.getValue())
                     ctx.setConcreteVariableValue(ctx.getSymbolicVariable(v.getId()), v.getValue())
+                print("flag: %s"+flag)
 
             
         if instruction.getType() == OPCODE.X86.RET:
@@ -97,6 +100,9 @@ def main(argv):
     for n, offset in enumerate(key_offsets):
         ctx.setConcreteMemoryValue(BYTECODE_BASE + offset, key[n])
         var = ctx.symbolizeMemory(MemoryAccess(BYTECODE_BASE + offset, CPUSIZE.BYTE))
+        vast = ast.variable(var)
+        ctx.pushPathConstraint(ast.land([vast >= ord(b'0'), vast <= ord(b'z')]))
+
 
     emulate(ctx, 0x31274)
 
