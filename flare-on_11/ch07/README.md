@@ -1,6 +1,7 @@
 ## 7. fullspeed
 
 - bleed from the eyes
+- use OllyDumpEx to dump the binary once it's all "hydrated"
 - compile some .NET AOT hello world with bouncy castle
 - generate sigs
 - cry
