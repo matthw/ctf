@@ -1,6 +1,7 @@
 ## 7. fullspeed
 
-- compile a some .NET AOT hello world with bouncy castle
+- bleed from the eyes
+- compile some .NET AOT hello world with bouncy castle
 - generate sigs
 - cry
 - make a [C2](c2_working.py) to verify the reverse is good
